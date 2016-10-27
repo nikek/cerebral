@@ -1,10 +1,16 @@
 import {set, state} from 'cerebral/operators'
 import selectClient from './signals/selectClient'
+import saveClient from './signals/saveClient'
+import discardDraft from './signals/discardDraft'
+import updateDraft from './signals/updateDraft'
 
 export default {
   state: {
     all: {
-      incal: {name: 'Incal Inc'},
+      incal: {
+        name: 'Incal Inc',
+        notes: 'Could collaborate on AI projects.'
+      },
       calvin: {name: 'Calvin and Hobbes Ltd'},
       largo: {name: 'Largo Winch et al'}
     },
@@ -15,6 +21,9 @@ export default {
   },
   signals: {
     routed: [set(state`$selectedView`, 'Clients')],
-    cardClicked: selectClient
+    cardClicked: selectClient,
+    enterPressed: saveClient,
+    escPressed: discardDraft,
+    formValueChanged: updateDraft
   }
 }

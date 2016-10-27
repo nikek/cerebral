@@ -1,31 +1,48 @@
 import React from 'react'
 import {connect} from 'cerebral/react'
+import Input from '../Input'
+import Textarea from '../Textarea'
 
-export default connect(({clientRef}) => ({
-  client: `clients.all.${clientRef}`,
-}),
-{
-  cardClicked: 'clients.cardClicked'
+export default connect({
+  draft: `clients.$draft`
 },
-  function ClientForm ({client, cardClicked}) {
+{
+  cancelEdit: 'clients.escPressed',
+},
+  function ClientForm ({draft, cancelEdit}) {
     return (
       <div className='column'>
-        <div className='card' onClick={() => cardClicked({clientRef:''})}>
+        <div className='card'>
           <div className='card-content'>
-            <div className='media'>
+            <div className='media' onClick={() => cancelEdit()}>
               <div className='media-left'>
                 <figure className='image is-32x32'>
                   <img src='http://placehold.it/64x64' alt='user' />
                 </figure>
               </div>
               <div className='media-content'>
-                <p className='title is-5'>{client.name}</p>
+                <p className='title is-5'>
+                  {draft.name}
+                </p>
                 <p className='subtitle is-6'>@johnsmith</p>
               </div>
             </div>
 
             <div className='content'>
-              FORM GOES HERE
+              <p className='control'>
+                <Input field='name' autoFocus={true} placeholder='Company name' />
+              </p>
+              <p className='control has-icon'>
+                <Input field='email' placeholder='Email' />
+                <i className='fa fa-envelope'></i>
+              </p>
+              <p className='control has-icon'>
+                <Input field='phone' placeholder='Telephone' />
+                <i className='fa fa-phone'></i>
+              </p>
+              <p className='control'>
+                <Textarea field='notes' placeholder='Notes' />
+              </p>
             </div>
             <nav className='level'>
               <div className='level-left'>

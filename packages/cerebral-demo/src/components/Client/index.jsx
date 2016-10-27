@@ -25,8 +25,7 @@ export default connect(({clientRef}) => ({
             </div>
 
             <div className='content'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Phasellus nec iaculis mauris.
+              {client.notes}
             </div>
             <nav className='level'>
               <div className='level-left'>
