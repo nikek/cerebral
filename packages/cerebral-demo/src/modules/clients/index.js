@@ -1,6 +1,6 @@
 import {set, state} from 'cerebral/operators'
 import selectClient from './signals/selectClient'
-import saveClient from './signals/saveClient'
+import saveDraft from './signals/saveDraft'
 import discardDraft from './signals/discardDraft'
 import updateDraft from './signals/updateDraft'
 
@@ -22,7 +22,7 @@ export default {
   signals: {
     routed: [set(state`$selectedView`, 'Clients')],
     cardClicked: selectClient,
-    enterPressed: saveClient,
+    enterPressed: saveDraft,
     escPressed: discardDraft,
     formValueChanged: updateDraft
   }
