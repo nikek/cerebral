@@ -7,10 +7,10 @@ export default connect(({clientRef}) => ({
 {
   cardClicked: 'clients.cardClicked'
 },
-  function Client ({clientRef, client, cardClicked}) {
+  function ClientForm ({client, cardClicked}) {
     return (
       <div className='column'>
-        <div className='card' onClick={() => cardClicked({clientRef})}>
+        <div className='card' onClick={() => cardClicked({clientRef:''})}>
           <div className='card-content'>
             <div className='media'>
               <div className='media-left'>
@@ -25,8 +25,7 @@ export default connect(({clientRef}) => ({
             </div>
 
             <div className='content'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Phasellus nec iaculis mauris.
+              FORM GOES HERE
             </div>
             <nav className='level'>
               <div className='level-left'>

@@ -1,4 +1,5 @@
 import {set, state} from 'cerebral/operators'
+import selectClient from './signals/selectClient'
 
 export default {
   state: {
@@ -13,6 +14,7 @@ export default {
     '/': 'routed'
   },
   signals: {
-    routed: [set(state`$selectedView`, 'Clients')]
+    routed: [set(state`$selectedView`, 'Clients')],
+    cardClicked: selectClient
   }
 }
