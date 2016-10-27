@@ -1,41 +1,26 @@
 /* eslint-disable no-script-url */
 import React from 'react'
 import {connect} from 'cerebral/react'
-import UpperTitle from '../UpperTitle'
-import SideBar from '../SideBar'
+import Sidebar from '../Sidebar'
 import Timer from '../Timer'
-import Today from '../Today'
+import Workspace from '../Workspace'
 
 export default connect({
-  title: 'title'
-}, {
-  frontRouted: 'routed',
-  adminRouted: 'admin.routed'
 },
   function Demo (props) {
-    const onAdminClicked = () => {
-      props.adminRouted()
-    }
-
-    const onFrontClicked = () => {
-      props.frontRouted()
-    }
-
     return (
       <div className='container'>
         <section className='hero is-dark'>
-          <div className='hero-body'>
+          <div className='hero-body' style={{padding: '40px 20px'}}>
             <h1 className='title'>Cerebral Demo</h1>
           </div>
         </section>
         <section className='section'>
           <div className='columns'>
-            <SideBar />
+            <Sidebar />
             <div className='column'>
               <Timer />
-              <div className='section'>
-                <Today />
-              </div>
+              <Workspace />
             </div>
           </div>
         </section>

@@ -1,6 +1,7 @@
 import React from 'react'
 import {render} from 'react-dom'
 import Demo from './components/Demo'
+import clients from './modules/clients'
 
 import {Controller} from 'cerebral'
 import {Container} from 'cerebral/react'
@@ -8,30 +9,22 @@ import Devtools from 'cerebral/devtools'
 import Router from 'cerebral-router'
 import {set, state} from 'cerebral/operators'
 
-const AdminModule = {
-  routes: {
-    '/': 'routed'
-  },
-  signals: {
-    routed: [set(state`title`, 'Admin')]
-  }
-}
-
 const controller = Controller({
   devtools: Devtools(),
   router: Router({
     routes: {
       '/': 'routed'
-    }
+    },
+    onlyHash: false,
   }),
   state: {
-    title: 'Hello world!'
+    $selectedView: 'Today'
   },
   signals: {
-    routed: [set(state`title`, 'Front page')]
+    routed: [set(state`$selectedView`, 'Today')]
   },
   modules: {
-    admin: AdminModule
+    clients
   }
 })
 
