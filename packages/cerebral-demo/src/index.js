@@ -1,6 +1,6 @@
 import React from 'react'
 import {render} from 'react-dom'
-import Demo from './components/Demo'
+import App from './components/App'
 import clients from './modules/clients'
 
 import {Controller} from 'cerebral'
@@ -13,7 +13,8 @@ const controller = Controller({
   devtools: Devtools(),
   router: Router({
     routes: {
-      '/': 'routed'
+      '/': 'routed',
+      '/clients': 'clients.routed'
     },
     onlyHash: false,
   }),
@@ -30,6 +31,6 @@ const controller = Controller({
 
 render((
   <Container controller={controller} >
-    <Demo />
+    <App />
   </Container>
 ), document.querySelector('#root'))

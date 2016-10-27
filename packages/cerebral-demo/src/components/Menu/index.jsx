@@ -4,7 +4,7 @@ import {connect} from 'cerebral/react'
 export default connect({
   selectedView: '$selectedView'
 },
-  function Sidebar ({selectedView}) {
+  function Navbar ({selectedView}) {
     return (
       <div className='column is-2'>
         <aside className='menu'>
@@ -14,7 +14,7 @@ export default connect({
               <a className={`${selectedView === 'Today' ? 'is-active' : ''}`}
                href='/'>
                 <span className='icon is-small'><i className='fa fa-clock-o'></i></span>
-                &nbsp;Timer
+                &nbsp;Today
               </a>
             </li>
             <li>
