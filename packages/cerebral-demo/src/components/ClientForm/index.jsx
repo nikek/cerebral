@@ -3,12 +3,11 @@ import {connect} from 'cerebral/react'
 import Input from '../Input'
 import Textarea from '../Textarea'
 
-export default connect({
-  draft: `clients.$draft`
-},
-{
-  cancelEdit: 'clients.escPressed',
-},
+export default connect(
+  { draft: `clients.$draft`
+  },
+  { cancelEdit: 'clients.escPressed'
+  },
   function ClientForm ({draft, cancelEdit}) {
     return (
       <div className='column'>
@@ -30,15 +29,15 @@ export default connect({
 
             <div className='content'>
               <p className='control'>
-                <Input field='name' autoFocus={true} placeholder='Company name' />
+                <Input field='name' autoFocus placeholder='Company name' />
               </p>
               <p className='control has-icon'>
                 <Input field='email' placeholder='Email' />
-                <i className='fa fa-envelope'></i>
+                <i className='fa fa-envelope' />
               </p>
               <p className='control has-icon'>
                 <Input field='phone' placeholder='Telephone' />
-                <i className='fa fa-phone'></i>
+                <i className='fa fa-phone' />
               </p>
               <p className='control'>
                 <Textarea field='notes' placeholder='Notes' />

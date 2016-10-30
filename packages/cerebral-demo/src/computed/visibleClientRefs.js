@@ -5,6 +5,7 @@ export default Computed({
   filter: 'clients.$filter'
 }, ({clients, filter}) => {
   return Object.keys(clients).filter((ref) => (
-    !filter || clients[ref].name.indexOf(filter) >= 0
+    ref !== 'no_client' &&
+    (!filter || clients[ref].name.indexOf(filter) >= 0)
   ))
 })

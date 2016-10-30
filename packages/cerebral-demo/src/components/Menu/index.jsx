@@ -1,6 +1,22 @@
 import React from 'react'
 import {connect} from 'cerebral/react'
 
+const MENUS = [
+  {name: 'Work',
+    entries: [
+      {name: 'Today', icon: 'fa-clock-o', url: '/'},
+      {name: 'Report', icon: 'fa-bar-chart', url: '/report'}
+    ]
+  },
+  {name: 'Manage',
+    entries: [
+      {name: 'Clients', icon: 'fa-users', url: '/clients'},
+      {name: 'Projects', icon: 'fa-folder', url: '/projects'},
+      {name: 'Tasks', icon: 'fa-tasks', url: '/tasks'}
+    ]
+  }
+]
+
 export default connect({
   selectedView: '$selectedView'
 },
@@ -8,44 +24,24 @@ export default connect({
     return (
       <div className='column is-2'>
         <aside className='menu'>
-          <p className='menu-label'>Work</p>
-          <ul className='menu-list'>
-            <li>
-              <a className={`${selectedView === 'Today' ? 'is-active' : ''}`}
-               href='/'>
-                <span className='icon is-small'><i className='fa fa-clock-o'></i></span>
-                &nbsp;Today
-              </a>
-            </li>
-            <li>
-              <a href='#'>
-                <span className='icon is-small'><i className='fa fa-bar-chart'></i></span>
-                &nbsp;Report
-              </a>
-            </li>
-          </ul>
-          <p className='menu-label'>Manage</p>
-          <ul className='menu-list'>
-            <li>
-              <a className={`${selectedView === 'Clients' ? 'is-active' : ''}`}
-                 href='/clients'>
-                <span className='icon is-small'><i className='fa fa-users'></i></span>
-                &nbsp;Clients
-              </a>
-            </li>
-            <li>
-              <a href='#'>
-                <span className='icon is-small'><i className='fa fa-folder'></i></span>
-                &nbsp;Projects
-              </a>
-            </li>
-            <li>
-              <a href='#'>
-                <span className='icon is-small'><i className='fa fa-tasks'></i></span>
-                &nbsp;Tasks
-              </a>
-            </li>
-          </ul>
+          {MENUS.map(menu => (
+            <div key={menu.name}>
+              <p className='menu-label'>{menu.name}</p>
+              <ul className='menu-list'>
+                {menu.entries.map(entry => (
+                  <li key={entry.name}>
+                    <a className={`${selectedView === entry.name ? 'is-active' : ''}`}
+                      href={`${entry.url}`}>
+                      <span className='icon is-small'>
+                        <i className={`fa ${entry.icon}`} />
+                      </span>
+                      &nbsp;{entry.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </aside>
       </div>
     )

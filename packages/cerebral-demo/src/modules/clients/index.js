@@ -9,10 +9,21 @@ export default {
     all: {
       incal: {
         name: 'Incal Inc',
-        notes: 'Could collaborate on AI projects.'
+        notes: 'Could collaborate on AI projects.',
+        ref: 'incal'
       },
-      calvin: {name: 'Calvin and Hobbes Ltd'},
-      largo: {name: 'Largo Winch et al'}
+      calvin: {
+        ref: 'calvin',
+        name: 'Calvin and Hobbes Ltd'
+      },
+      largo: {
+        ref: 'largo',
+        name: 'Largo Winch et al'
+      },
+      no_client: {
+        ref: 'no_client',
+        name: 'No client'
+      }
     },
     $selected: null
   },
