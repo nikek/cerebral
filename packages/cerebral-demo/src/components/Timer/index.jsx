@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'cerebral/react'
+import ProjectSelector from '../ProjectSelector'
 
 export default connect({
 },
@@ -9,9 +10,12 @@ export default connect({
         <div className='level-left'>
           <div className='level-item'>
             <p className='control has-addons'>
-              <input className='input' type='text' style={{width:300}} placeholder='What do you want to do ?' />
+              <input className='input' type='text' style={{width: 230}} placeholder='What do you want to do ?' />
               <button className='button'>Start</button>
             </p>
+          </div>
+          <div className='level-item'>
+            <ProjectSelector />
           </div>
         </div>
         <div className='level-right'>

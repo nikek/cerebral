@@ -2,6 +2,7 @@ import React from 'react'
 import {render} from 'react-dom'
 import App from './components/App'
 import clients from './modules/clients'
+import projects from './modules/projects'
 
 import {Controller} from 'cerebral'
 import {Container} from 'cerebral/react'
@@ -14,9 +15,10 @@ const controller = Controller({
   router: Router({
     routes: {
       '/': 'routed',
-      '/clients': 'clients.routed'
+      '/clients': 'clients.routed',
+      '/projects': 'projects.routed'
     },
-    onlyHash: false,
+    onlyHash: false
   }),
   state: {
     $selectedView: 'Today'
@@ -25,7 +27,8 @@ const controller = Controller({
     routed: [set(state`$selectedView`, 'Today')]
   },
   modules: {
-    clients
+    clients,
+    projects
   }
 })
 

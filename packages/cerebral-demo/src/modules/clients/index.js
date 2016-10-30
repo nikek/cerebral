@@ -14,10 +14,7 @@ export default {
       calvin: {name: 'Calvin and Hobbes Ltd'},
       largo: {name: 'Largo Winch et al'}
     },
-    $selected: null,
-  },
-  routes: {
-    '/': 'routed'
+    $selected: null
   },
   signals: {
     routed: [set(state`$selectedView`, 'Clients')],
