@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'cerebral/react'
-import ProjectTag from './ProjectTag'
+import SelectedProjectTag from '../SelectedProjectTag'
 
 export default connect({
 },
@@ -15,7 +15,7 @@ export default connect({
             </p>
           </div>
           <div className='level-item'>
-            <ProjectTag />
+            <SelectedProjectTag />
           </div>
         </div>
         <div className='level-right'>

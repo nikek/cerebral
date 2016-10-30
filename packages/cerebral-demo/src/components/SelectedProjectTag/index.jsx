@@ -12,7 +12,7 @@ export default connect(
   function ProjectTag ({onClick, project, showSelector}) {
     return (
       <div className='control' style={{position: 'relative'}}>
-        <span className='tag is-primary' onClick={() => onClick()}>Cerebral-demo</span>
+        <span className='tag is-primary' onClick={() => onClick()}>{project ? project.name : 'no project'}</span>
         {showSelector
           ? <div style={{position: 'absolute', top: -3}}>
             <ProjectSelector />

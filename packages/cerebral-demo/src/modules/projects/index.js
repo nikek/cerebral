@@ -1,4 +1,5 @@
 import {input, set, state} from 'cerebral/operators'
+import closeProjectSelector from './signals/closeProjectSelector'
 
 export default {
   state: {
@@ -26,11 +27,12 @@ export default {
       [set(state`$selectedView`, 'Projects')],
     projectTagClicked:
       [set(state`projects.$showProjectSelector`, true)],
-    selectorInputBlur:
-      [ set(state`projects.$showProjectSelector`, false),
-        set(state`projects.$filter`, '')
-      ],
+    selectorBackgroundClick: closeProjectSelector,
     filterChanged:
-      [set(state`projects.$filter`, input`value`)]
+      [set(state`projects.$filter`, input`value`)],
+    selectorProjectClicked:
+      [ set(state`projects.$selected`, input`ref`),
+        ...closeProjectSelector
+      ]
   }
 }

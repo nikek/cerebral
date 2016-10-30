@@ -11,6 +11,7 @@ import Router from 'cerebral-router'
 import {set, state} from 'cerebral/operators'
 
 const controller = Controller({
+  strictRender: true,
   devtools: Devtools(),
   router: Router({
     routes: {
