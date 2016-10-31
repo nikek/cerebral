@@ -13,10 +13,10 @@ export default connect(
   function ProjectSelector ({projectsByClient, selectedProject, onBackgroundClick, onChange, onProjectClick}) {
     return (
       <div>
-        <div className='popupBackground' style={{position: 'fixed', top: 0, left: 0, width: '100%', height: '100%'}}
+        <div className='popupBackground' style={{position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', opacity: 0.05, zIndex: 9, background: '#444'}}
           onClick={() => onBackgroundClick()}
           />
-        <div className='card'>
+        <div className='card' style={{zIndex: 9}}>
           <header className='card-header'>
             <input className='input'
               placeholder='Find project...'

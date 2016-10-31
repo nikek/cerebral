@@ -33,6 +33,10 @@ export default {
     selectorProjectClicked:
       [ set(state`projects.$selected`, input`ref`),
         ...closeProjectSelector
+      ],
+    cardClicked:
+      [ set(state`projects.$selected`, input`ref`),
+        set(state`projects.$draft`, state`projects.all.${input`ref`}`)
       ]
   }
 }

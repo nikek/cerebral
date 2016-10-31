@@ -1,16 +1,15 @@
 import React from 'react'
 import {connect} from 'cerebral/react'
 
-export default connect(({clientRef}) => ({
-  client: `clients.all.${clientRef}`,
-}),
-{
-  cardClicked: 'clients.cardClicked'
-},
-  function Client ({clientRef, client, cardClicked}) {
+export default connect(({clientRef}) => (
+  { client: `clients.all.${clientRef}`
+  }),
+  { cardClicked: 'clients.cardClicked'
+  },
+  function Client ({client, cardClicked}) {
     return (
       <div className='column'>
-        <div className='card' onClick={() => cardClicked({clientRef})}>
+        <div className='card' onClick={() => cardClicked({ref: client.ref})}>
           <div className='card-content'>
             <div className='media'>
               <div className='media-left'>
