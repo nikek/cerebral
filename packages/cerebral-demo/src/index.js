@@ -3,6 +3,7 @@ import {render} from 'react-dom'
 import App from './components/App'
 import clients from './modules/clients'
 import projects from './modules/projects'
+import tasks from './modules/tasks'
 
 import {Controller} from 'cerebral'
 import {Container} from 'cerebral/react'
@@ -17,7 +18,8 @@ const controller = Controller({
     routes: {
       '/': 'routed',
       '/clients': 'clients.routed',
-      '/projects': 'projects.routed'
+      '/projects': 'projects.routed',
+      '/tasks': 'tasks.routed'
     },
     onlyHash: false
   }),
@@ -29,7 +31,8 @@ const controller = Controller({
   },
   modules: {
     clients,
-    projects
+    projects,
+    tasks
   }
 })
 
