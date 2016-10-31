@@ -1,12 +1,13 @@
 import {now, serialize} from '../../../helpers/dateTime'
 
 export default function updateNow ({state, controller}) {
-  const timeHasPassed = controller.getSignal('tasks.timeHasPassed')
+  state.set(`tasks.$now`, serialize(now()))
 
-  if (state.get(`tasks.$now`)) {
-    state.set(`tasks.$now`, serialize(now()))
-    setTimeout(timeHasPassed, 1000)
-  } else {
-    // Now has been cleared: not running, no more updates
-  }
+  setTimeout(() => {
+    if (state.get(`tasks.$now`)) {
+      // Still running.
+      controller.getSignal('tasks.timeHasPassed')()
+    }
+  // 1s interval gives a feel of regularity even if once in a while the display skips a value due to drift (goes from 11 to 13 for example). This is better then the reverse (waiting nearly two seconds for a display change).
+  }, 1000)
 }
