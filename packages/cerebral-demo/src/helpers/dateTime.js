@@ -28,7 +28,14 @@ export const displayTimeWithSeconds = (time) => {
   return `${h}:${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`
 }
 
-export const displayDuration = (fromDateTime, toDateTime) => {
-  const duration = Duration.between(fromDateTime, toDateTime)
-  return displayTimeWithSeconds(LocalTime.ofSecondOfDay(duration.seconds()))
-}
+export const displayDuration = (fromDateTime, toDateTime) => (
+  displayElasped(elapsedSeconds(fromDateTime, toDateTime))
+)
+
+export const displayElasped = (seconds) => (
+  displayTimeWithSeconds(LocalTime.ofSecondOfDay(seconds))
+)
+
+export const elapsedSeconds = (fromDateTime, toDateTime) => (
+  Duration.between(fromDateTime, toDateTime).seconds()
+)
