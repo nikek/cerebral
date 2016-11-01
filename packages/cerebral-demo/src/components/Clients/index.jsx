@@ -5,14 +5,14 @@ import ClientForm from '../ClientForm'
 import visibleClientRefs from '../../computed/visibleClientRefs'
 
 export default connect({
-  selectedClient: 'clients.$selected',
+  selected: 'clients.$selected',
   clientRefs: visibleClientRefs
 },
-  function Clients ({selectedClient, clientRefs}) {
+  function Clients ({selected, clientRefs}) {
     return (
       <div className='columns is-multiline'>
         {clientRefs.map(ref => (
-          selectedClient === ref
+          selected === ref
           ? <ClientForm key={ref} clientRef={ref} />
           : <Client key={ref} clientRef={ref} />
         ))}

@@ -39,6 +39,10 @@ export default connect(
                 <Input field='phone' placeholder='Telephone' />
                 <i className='fa fa-phone' />
               </p>
+              <p className='control has-icon'>
+                <Input field='image' placeholder='64x64 image url' />
+                <i className='fa fa-image' />
+              </p>
               <p className='control'>
                 <Textarea field='notes' placeholder='Notes' />
               </p>

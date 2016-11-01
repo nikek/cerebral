@@ -1,4 +1,4 @@
-import {set, state} from 'cerebral/operators'
+import {input, set, state} from 'cerebral/operators'
 import selectClient from './signals/selectClient'
 import saveDraft from './signals/saveDraft'
 import discardDraft from './signals/discardDraft'
@@ -7,21 +7,25 @@ import updateDraft from './signals/updateDraft'
 export default {
   state: {
     all: {
-      incal: {
-        name: 'Incal Inc',
-        notes: 'Could collaborate on AI projects.',
-        ref: 'incal'
+      'cerebral': {
+        name: 'Cerebral',
+        notes: 'Make sense of complex apps.',
+        ref: 'cerebral',
+        image: '/cerebral-mini.png',
+        website: 'cerebraljs.com'
       },
-      calvin: {
+      'calvin': {
         ref: 'calvin',
-        name: 'Calvin and Hobbes Ltd'
+        name: 'Calvin and Hobbes Ltd',
+        email: 'calvin@hobbes.com',
+        phone: '123456789'
       },
-      largo: {
+      'largo': {
         ref: 'largo',
         name: 'Largo Winch et al'
       },
-      no_client: {
-        ref: 'no_client',
+      'no-client': {
+        ref: 'no-client',
         name: 'No client'
       }
     },
@@ -32,6 +36,7 @@ export default {
     cardClicked: selectClient,
     enterPressed: saveDraft,
     escPressed: discardDraft,
-    formValueChanged: updateDraft
+    formValueChanged: updateDraft,
+    phoneClicked: [set(state`clients.$phone`, input`phone`)]
   }
 }

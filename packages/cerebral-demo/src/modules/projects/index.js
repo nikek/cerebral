@@ -4,15 +4,20 @@ import closeProjectSelector from './signals/closeProjectSelector'
 export default {
   state: {
     all: {
+      'no-project': {
+        ref: 'no-project',
+        name: 'no project',
+        clientRef: 'no-client'
+      },
       'cerebral-demo': {
         ref: 'cerebral-demo',
-        name: 'Cerebral-demo',
-        clientRef: 'incal'
+        name: 'Cerebral demo',
+        clientRef: 'cerebral'
       },
       'learn-inferno': {
         ref: 'learn-inferno',
         name: 'Learn Inferno',
-        clientRef: 'no_client'
+        clientRef: 'no-client'
       },
       'read-calvin': {
         ref: 'read-calvin',
