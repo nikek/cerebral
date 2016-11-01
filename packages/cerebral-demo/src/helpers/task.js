@@ -1,13 +1,10 @@
-import {parse, displayDuration, now} from './dateTime'
+import {displayElapsed} from './dateTime'
 
-const anyTime = now()
-const noDurationString = displayDuration(anyTime, anyTime)
+const noDurationString = displayElapsed(0)
 
 export const displayTaskDuration = (task) => {
   if (task.startedAt) {
-    const fromDateTime = parse(task.startedAt)
-    const toDateTime = parse(task.endedAt)
-    return displayDuration(fromDateTime, toDateTime)
+    return displayElapsed(task.elapsed)
   } else {
     return noDurationString
   }

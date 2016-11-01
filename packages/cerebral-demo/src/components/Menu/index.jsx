@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'cerebral/react'
+import translations from '../../computed/translations'
 
 const MENUS = [
   {name: 'Work',
@@ -18,15 +19,16 @@ const MENUS = [
 ]
 
 export default connect({
-  selectedView: '$selectedView'
+  selectedView: '$selectedView',
+  t: translations
 },
-  function Navbar ({selectedView}) {
+  function Navbar ({selectedView, t}) {
     return (
       <div className='column is-2'>
         <aside className='menu'>
           {MENUS.map(menu => (
             <div key={menu.name}>
-              <p className='menu-label'>{menu.name}</p>
+              <p className='menu-label'>{t[menu.name]}</p>
               <ul className='menu-list'>
                 {menu.entries.map(entry => (
                   <li key={entry.name}>
@@ -35,7 +37,7 @@ export default connect({
                       <span className='icon is-small'>
                         <i className={`fa ${entry.icon}`} />
                       </span>
-                      &nbsp;{entry.name}
+                      &nbsp;{t[entry.name]}
                     </a>
                   </li>
                 ))}

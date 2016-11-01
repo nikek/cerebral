@@ -24,7 +24,8 @@ const controller = Controller({
     onlyHash: false
   }),
   state: {
-    $selectedView: 'Today'
+    $selectedView: 'Today',
+    $lang: 'fr'
   },
   signals: {
     routed: [set(state`$selectedView`, 'Today')]

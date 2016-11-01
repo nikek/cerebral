@@ -1,7 +1,7 @@
-import {now, serialize} from '../../../helpers/dateTime'
+import {now} from '../../../helpers/dateTime'
 
 export default function updateNow ({state, controller}) {
-  state.set(`tasks.$now`, serialize(now()))
+  state.set(`tasks.$now`, now())
 
   setTimeout(() => {
     if (state.get(`tasks.$now`)) {

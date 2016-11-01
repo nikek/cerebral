@@ -24,9 +24,9 @@ export default Computed({
     list.push(project)
   })
   result.sort((a, b) => {
-    if (a.ref === 'no_client') {
+    if (a.ref === 'no-client') {
       return -1
-    } else if (b.ref === 'no_client') {
+    } else if (b.ref === 'no-client') {
       return 1
     } else {
       return a.name <= b.name ? -1 : 0

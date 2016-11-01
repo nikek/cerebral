@@ -29,7 +29,7 @@ export default connect(
 
             <div className='content'>
               <p className='control'>
-                <Input field='name' autoFocus placeholder='Company name' />
+                <Input field='name' autoFocus placeholder='CompanyName' />
               </p>
               <p className='control has-icon'>
                 <Input field='email' placeholder='Email' />
@@ -50,15 +50,15 @@ export default connect(
             <nav className='level'>
               <div className='level-left'>
                 <a className='level-item'>
-                  <span className='icon is-small'><i className='fa fa-phone'></i></span>
+                  <span className='icon is-small'><i className='fa fa-phone' /></span>
                 </a>
                 <a className='level-item'>
-                  <span className='icon is-small'><i className='fa fa-envelope'></i></span>
+                  <span className='icon is-small'><i className='fa fa-envelope' /></span>
                 </a>
               </div>
               <div className='level-right'>
                 <a className='level-item'>
-                  <span className='icon is-small'><i className='fa fa-plus-circle'></i></span>
+                  <span className='icon is-small'><i className='fa fa-plus-circle' /></span>
                 </a>
               </div>
             </nav>

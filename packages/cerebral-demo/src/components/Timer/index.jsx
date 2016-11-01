@@ -3,15 +3,17 @@ import {connect} from 'cerebral/react'
 import ProjectSelectorTag from '../ProjectSelectorTag'
 import {displayTaskDuration} from '../../helpers/task'
 import runningTask from '../../computed/runningTask'
+import translations from '../../computed/translations'
 
 export default connect(
-  { task: runningTask
+  { task: runningTask,
+    t: translations
   },
   { onChange: 'tasks.runningInputChanged',
     enterPressed: 'tasks.enterPressed',
     onClick: 'tasks.startStopClicked'
   },
-  function Timer ({task, onChange, enterPressed, onClick}) {
+  function Timer ({task, t, onChange, enterPressed, onClick}) {
     const onKeyPress = e => {
       switch (e.key) {
         case 'Enter': enterPressed(); break
@@ -28,7 +30,7 @@ export default connect(
                 value={task.description || ''}
                 onChange={(e) => onChange({description: e.target.value})}
                 onKeyPress={onKeyPress}
-                placeholder='What do you want to do ?' />
+                placeholder={t.WhatAreYouDoing} />
               <button className='button' onClick={() => onClick()}>
                 {task.startedAt ? 'Stop' : 'Start'}
               </button>

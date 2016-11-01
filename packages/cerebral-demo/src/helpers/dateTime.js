@@ -1,41 +1,72 @@
-import {Duration, LocalTime, ZonedDateTime, ZoneOffset} from 'js-joda'
+import {Duration, LocalTime, ZonedDateTime, ZoneId, ZoneOffset} from 'js-joda'
 
-export const parse = ZonedDateTime.parse
+const SYSTEM = ZoneId.SYSTEM
 
-export const serialize = (date) => date.toString()
+// All public API takes a string and returns a string
+const parse = ZonedDateTime.parse
 
-export const now = () => (
-  ZonedDateTime.now(ZoneOffset.UTC)
+const parseHere = (utcDateString) => (
+  ZonedDateTime.parse(utcDateString).withZoneSameInstant(SYSTEM)
 )
 
-export const displayDate = (date) => {
-  const y = date.year()
-  const m = date.month().value()
-  const d = date.dayOfMonth()
-  return `${y}-${m < 10 ? '0' : ''}-${m}-${d < 10 ? '0' : ''}${d}`
+export const now = () => (
+  ZonedDateTime.now(ZoneOffset.UTC).toString()
+)
+
+const todayHere = () => (
+  ZonedDateTime.now(SYSTEM)
+)
+
+export const sortDayString = (dateString) => dateString.substr(0, 10)
+
+let dayMap = {}
+
+const specialDayNames = () => {
+  const today = todayHere()
+  const todayDate = sortDayString(today.toString())
+  if (dayMap[todayDate] !== 'Today') {
+    dayMap[todayDate] = 'Today'
+    dayMap[sortDayString(today.minusDays(1).toString())] = 'dayago1'
+    dayMap[sortDayString(today.minusDays(2).toString())] = 'dayago2'
+  }
+  return dayMap
 }
 
-export const displayTime = (time) => {
+export const displayDate = (dateString, translate) => {
+  const hereDate = parseHere(dateString)
+  const dayDate = sortDayString(hereDate.toString())
+  const specialDayName = specialDayNames()[dayDate]
+  if (specialDayName) {
+    return specialDayName
+  }
+  const dayName = translate[`Dow${hereDate.dayOfWeek().value()}`]
+  const day = hereDate.dayOfMonth()
+  const monthName = translate[`Mon${hereDate.monthValue()}`]
+  const thisYear = todayHere().year()
+  const year = hereDate.year()
+  return `${dayName}, ${day} ${monthName}${thisYear === year ? '' : ` ${year}`}`
+}
+
+export const displayTime = (dateString) => {
+  const time = parseHere(dateString)
   const h = time.hour()
   const m = time.minute()
   return `${h}:${m < 10 ? '0' : ''}${m}`
 }
 
-export const displayTimeWithSeconds = (time) => {
+const displayTimeWithSeconds = (time) => {
   const h = time.hour()
   const m = time.minute()
   const s = time.second()
   return `${h}:${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`
 }
 
-export const displayDuration = (fromDateTime, toDateTime) => (
-  displayElasped(elapsedSeconds(fromDateTime, toDateTime))
-)
-
-export const displayElasped = (seconds) => (
+export const displayElapsed = (seconds) => (
   displayTimeWithSeconds(LocalTime.ofSecondOfDay(seconds))
 )
 
-export const elapsedSeconds = (fromDateTime, toDateTime) => (
-  Duration.between(fromDateTime, toDateTime).seconds()
-)
+export const elapsedSeconds = (fromDateTimeString, toDateTimeString) => {
+  const fromDateTime = parse(fromDateTimeString)
+  const toDateTime = parse(toDateTimeString)
+  return Duration.between(fromDateTime, toDateTime).seconds()
+}
