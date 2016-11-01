@@ -1,17 +1,10 @@
-import {unset, set, state, when} from 'cerebral/operators'
-import startNewTask from '../actions/startNewTask'
-import updateNow from './updateNow'
+import {state, when} from 'cerebral/operators'
+import startRunning from './startRunning'
+import stopRunning from './stopRunning'
 
 export default [
   when(state`tasks.$running.startedAt`), {
-    true: [
-      /* TODO: saveRunningTask */
-      set(state`tasks.$running`, {}),
-      unset(state`tasks.$now`)
-    ],
-    false: [
-      startNewTask,
-      ...updateNow
-    ]
+    true: stopRunning,
+    false: startRunning
   }
 ]

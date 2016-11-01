@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'cerebral/react'
-import Input from '../Input'
+import Input from './Input'
 import Textarea from '../Textarea'
 
 export default connect(

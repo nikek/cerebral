@@ -4,7 +4,7 @@ import visibleProjectsByClient from '../../computed/visibleProjectsByClient'
 
 export default connect(
   { projectsByClient: visibleProjectsByClient,
-    selectedProject: 'projects.$selected'
+    selectedProject: 'tasks.$running.projectRef'
   },
   { onBackgroundClick: 'projects.selectorBackgroundClick',
     onChange: 'projects.filterChanged',

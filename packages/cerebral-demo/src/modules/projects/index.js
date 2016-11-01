@@ -36,7 +36,7 @@ export default {
     filterChanged:
       [set(state`projects.$filter`, input`value`)],
     selectorProjectClicked:
-      [ set(state`projects.$selected`, input`ref`),
+      [ set(state`tasks.$running.projectRef`, input`ref`),
         ...closeProjectSelector
       ],
     cardClicked:
