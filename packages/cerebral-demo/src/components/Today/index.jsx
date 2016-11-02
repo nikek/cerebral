@@ -11,21 +11,21 @@ export default connect(
     return (
       <div className='section'>
         {tasksByDay.map(day => (
-          <table key={day.dayDate} className='table'>
+          <table key={day.dayDate} className='table' style={{width: '100%'}}>
             <thead>
               <tr>
                 <th colSpan='3'>
                   <Date date={day.date} />
                 </th>
-                <th>{displayElapsed(day.totalElapsed)}</th>
+                <th style={{width: 100}}>{displayElapsed(day.totalElapsed)}</th>
               </tr>
             </thead>
             <tbody>
               {day.tasks.map(task =>
                 <tr key={task.ref}>
-                  <td>{displayTime(task.startedAt)}</td>
+                  <td style={{width: 60}}>{displayTime(task.startedAt)}</td>
                   <td>{task.description}</td>
-                  <td><a href='#'>project-link-todo</a></td>
+                  <td style={{width: 160}}><a href='#'>project-link-todo</a></td>
                   <td>{displayElapsed(task.elapsed)}</td>
                 </tr>
               )}

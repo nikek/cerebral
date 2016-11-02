@@ -32,16 +32,16 @@ const specialDayNames = () => {
   return dayMap
 }
 
-export const displayDate = (dateString, translate) => {
+export const displayDate = (dateString, t) => {
   const hereDate = parseHere(dateString)
   const dayDate = sortDayString(hereDate.toString())
   const specialDayName = specialDayNames()[dayDate]
   if (specialDayName) {
-    return specialDayName
+    return t[specialDayName]
   }
-  const dayName = translate[`Dow${hereDate.dayOfWeek().value()}`]
+  const dayName = t[`Dow${hereDate.dayOfWeek().value()}`]
   const day = hereDate.dayOfMonth()
-  const monthName = translate[`Mon${hereDate.monthValue()}`]
+  const monthName = t[`Mon${hereDate.monthValue()}`]
   const thisYear = todayHere().year()
   const year = hereDate.year()
   return `${dayName}, ${day} ${monthName}${thisYear === year ? '' : ` ${year}`}`

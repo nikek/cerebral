@@ -31,7 +31,7 @@ export default connect(
             <div className='container'>
               <nav className='nav'>
                 <div className='nav-left'>
-                  <a className='nav-item is-brand'>
+                  <a className='nav-item is-brand' style={{paddingLeft: 20}}>
                     <img src='/cerebral-logo.png' alt='Cerebral logo' />
                   </a>
                 </div>
@@ -43,7 +43,7 @@ export default connect(
               </nav>
             </div>
           </div>
-          <div className='hero-body'>
+          <div className='hero-body' style={{paddingLeft: 20}}>
             <div className='container'>
               <h1 className='title'>{t.CerebralDemo}</h1>
               {tagline}
