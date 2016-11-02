@@ -29,7 +29,7 @@ export default {
   },
   signals: {
     routed:
-      [set(state`$selectedView`, 'Projects')],
+      [set(state`app.$selectedView`, 'Projects')],
     projectTagClicked:
       [set(state`projects.$showProjectSelector`, true)],
     selectorBackgroundClick: closeProjectSelector,

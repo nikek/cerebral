@@ -32,7 +32,7 @@ export default {
     $selected: null
   },
   signals: {
-    routed: [set(state`$selectedView`, 'Clients')],
+    routed: [set(state`app.$selectedView`, 'Clients')],
     cardClicked: selectClient,
     enterPressed: saveDraft,
     escPressed: discardDraft,

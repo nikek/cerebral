@@ -23,7 +23,7 @@ export default {
     runningInputChanged:
       [set(state`tasks.$running.description`, input`description`)],
     routed:
-      [set(state`$selectedView`, 'Tasks')],
+      [set(state`app.$selectedView`, 'Tasks')],
     startStopClicked: startStopRunning,
     timeHasPassed: updateNow
   }

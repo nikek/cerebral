@@ -13,7 +13,7 @@ const VIEWS = {
 }
 
 export default connect({
-  'selectedView': '$selectedView'
+  'selectedView': 'app.$selectedView'
 },
   function Workspace ({selectedView}) {
     const CurrentView = VIEWS[selectedView]

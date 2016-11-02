@@ -1,5 +1,8 @@
 export default {
+  lang: 'en',
+  language: 'english',
   CerebralDemo: 'Cerebral Demo',
+  SiteTagLine: 'Time tracking application based on [Cerebral]', // [Cerebral] becomes a link here
   // Day of Week
   Dow0: 'Mon',
   Dow1: 'Tue',
@@ -33,7 +36,7 @@ export default {
   Projects: 'Projects',
   Tasks: 'Tasks',
   // Timer
-  WhatAreYouDoing: 'Que faites-vous en ce moment ?',
+  WhatAreYouDoing: 'What are you doing ?',
   Start: 'Start',
   Stop: 'Stop',
   // Client

@@ -19,7 +19,7 @@ const MENUS = [
 ]
 
 export default connect({
-  selectedView: '$selectedView',
+  selectedView: 'app.$selectedView',
   t: translations
 },
   function Navbar ({selectedView, t}) {

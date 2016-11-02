@@ -1,5 +1,8 @@
 export default {
+  lang: 'fr',
+  language: 'français',
   CerebralDemo: 'Démo Cerebral',
+  SiteTagLine: 'Une saisie des heures basée sur [Cerebral]',
   // Day of Week
   Dow0: 'Lun',
   Dow1: 'Mar',
