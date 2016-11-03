@@ -163,4 +163,23 @@ describe('Controller', () => {
     })
     controller.getSignal('test')()
   })
+  it('should emit signal related events', () => {
+    let eventCount = 0
+    const controller = new Controller({
+      signals: {
+        test: [
+          () => {},
+          ({path}) => path.foo(), {
+            foo: [() => {}]
+          }
+        ]
+      }
+    })
+    controller.on('signalStart', () => eventCount++)
+    controller.on('actionStart', () => eventCount++)
+    controller.on('actionEnd', () => eventCount++)
+    controller.on('signalEnd', () => eventCount++)
+    controller.getSignal('test')()
+    assert.equal(eventCount, 8)
+  })
 })
