@@ -1,18 +1,16 @@
 import React from 'react'
 import {connect} from 'cerebral/react'
 
-export default connect(({field}) => ({
-  value: `clients.$draft.${field}`
-}),
-{
-  enterPressed: 'clients.enterPressed',
-  escPressed: 'clients.escPressed',
-  valueChanged: 'clients.formValueChanged'
-},
+export default connect(({field}) => (
+  { value: `clients.$draft.${field}`
+  }),
+  { enterPressed: 'clients.enterPressed',
+    escPressed: 'clients.escPressed',
+    valueChanged: 'clients.formValueChanged'
+  },
   function Input ({field, value, placeholder, autoFocus, enterPressed, escPressed, valueChanged}) {
-
     const onKeyPress = e => {
-      switch(e.key) {
+      switch (e.key) {
         case 'Enter': enterPressed(); break
         case 'Esc': escPressed(); break
         default: break // noop
