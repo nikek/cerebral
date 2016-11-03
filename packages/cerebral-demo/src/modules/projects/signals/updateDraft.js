@@ -1,5 +1,5 @@
 import {input, set, state} from 'cerebral/operators'
 
 export default [
-  set(state`clients.$draft`, state`clients.all.${input`ref`}`)
+  set(state`projects.$draft.${input`field`}`, input`value`)
 ]

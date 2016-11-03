@@ -3,14 +3,15 @@ import {connect} from 'cerebral/react'
 import visibleProjectsByClient from '../../computed/visibleProjectsByClient'
 
 export default connect(
-  { projectsByClient: visibleProjectsByClient,
+  { filter: 'projects.$filter',
+    projectsByClient: visibleProjectsByClient,
     selectedProject: 'tasks.$running.projectRef'
   },
   { onBackgroundClick: 'projects.selectorBackgroundClick',
     onChange: 'projects.filterChanged',
     onProjectClick: 'projects.selectorProjectClicked'
   },
-  function ProjectSelector ({projectsByClient, selectedProject, onBackgroundClick, onChange, onProjectClick}) {
+  function ProjectSelector ({filter, projectsByClient, selectedProject, onBackgroundClick, onChange, onProjectClick}) {
     return (
       <div>
         <div className='popupBackground' onClick={() => onBackgroundClick()} />
@@ -19,8 +20,9 @@ export default connect(
             <header className='card-header'>
               <input className='input'
                 placeholder='Find project...'
+                value={filter || ''}
                 autoFocus
-                onChange={e => onChange({value: e.target.value})}
+                onChange={e => onChange({filter: e.target.value})}
                 type='text' style={{border: 0, marginTop: '3px', boxShadow: 'none'}} />
             </header>
             <div className='card-content'>

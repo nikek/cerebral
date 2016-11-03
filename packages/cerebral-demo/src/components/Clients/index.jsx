@@ -8,20 +8,22 @@ import translations from '../../computed/translations'
 export default connect(
   { clientRefs: visibleClientRefs,
     filter: 'clients.$filter',
-    selected: 'clients.$selected',
+    selectedClient: 'clients.$draft.**', // Should be 'clients.$draft.ref' IMO
     t: translations
   },
   { enterPressed: 'clients.filterEnterPressed',
     onChange: 'clients.filterChanged',
     onClick: 'clients.addClicked'
   },
-  function Clients ({clientRefs, filter, selected, t, enterPressed, onChange, onClick}) {
+  function Clients ({clientRefs, filter, selectedClient, t, enterPressed, onChange, onClick}) {
+    const selected = selectedClient && selectedClient.ref
     const onKeyPress = e => {
       switch (e.key) {
         case 'Enter': enterPressed(); break
         default: break // noop
       }
     }
+
     return (
       <div>
         <div className='level'>
@@ -29,7 +31,7 @@ export default connect(
             <div className='level-item'>
               <p className='control has-addons'>
                 <input className='input'
-                  placeholder={t.ClientNamePlaceholder}
+                  placeholder={t.ClientNameFilter}
                   value={filter || ''}
                   onChange={e => onChange({filter: e.target.value})}
                   onKeyPress={onKeyPress}

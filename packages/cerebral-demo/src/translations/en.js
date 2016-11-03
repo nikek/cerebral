@@ -44,12 +44,14 @@ export default {
   Start: 'Start',
   Stop: 'Stop',
   // Client
-  ClientNamePlaceholder: 'Client name...',
+  ClientNameFilter: 'Client name...',
   CompanyName: 'Company name',
   ImageUrl: '64x64 image url',
   Telephone: 'Telephone',
   WebsiteUrl: 'Website',
   Email: 'Email',
+  // Project
+  ProjectNameFilter: 'Project name...',
   // Generic
   Add: 'Add'
 }

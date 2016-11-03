@@ -1,5 +1,9 @@
 import {input, set, state} from 'cerebral/operators'
+import addProject from './signals/addProject'
 import closeProjectSelector from './signals/closeProjectSelector'
+import discardDraft from './signals/discardDraft'
+import updateDraft from './signals/updateDraft'
+import saveDraft from './signals/saveDraft'
 
 export default {
   state: {
@@ -28,20 +32,25 @@ export default {
     $filter: ''
   },
   signals: {
-    routed:
-      [set(state`app.$selectedView`, 'Projects')],
-    projectTagClicked:
-      [set(state`projects.$showProjectSelector`, true)],
-    selectorBackgroundClick: closeProjectSelector,
-    filterChanged:
-      [set(state`projects.$filter`, input`value`)],
-    selectorProjectClicked:
-      [ set(state`tasks.$running.projectRef`, input`ref`),
-        ...closeProjectSelector
-      ],
+    addClicked: addProject,
     cardClicked:
       [ set(state`projects.$selected`, input`ref`),
         set(state`projects.$draft`, state`projects.all.${input`ref`}`)
+      ],
+    enterPressed: saveDraft,
+    escPressed: discardDraft,
+    formValueChanged: updateDraft,
+    filterChanged:
+      [set(state`projects.$filter`, input`filter`)],
+    filterEnterPressed: addProject,
+    projectTagClicked:
+      [set(state`projects.$showProjectSelector`, true)],
+    routed:
+      [set(state`app.$selectedView`, 'Projects')],
+    selectorBackgroundClick: closeProjectSelector,
+    selectorProjectClicked:
+      [ set(state`tasks.$running.projectRef`, input`ref`),
+        ...closeProjectSelector
       ]
   }
 }

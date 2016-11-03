@@ -40,7 +40,8 @@ export default connect(({projectRef}) => (
               <div className='level-left' />
               <div className='level-right'>
                 <a className='level-item'>
-                  <span className='icon is-small'><i className='fa fa-plus-circle' /></span>
+                  {/* click on this should show tasks from this project in Report */}
+                  <span className='icon is-small'><i className='fa fa-tasks' /></span>
                 </a>
               </div>
             </nav>

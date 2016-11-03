@@ -5,9 +5,10 @@ import tasksByDay from '../../computed/tasksByDay'
 import Date from '../Date'
 
 export default connect(
-  { tasksByDay
+  { projects: 'projects.all.**',
+    tasksByDay
   },
-  function Tasks ({tasksByDay}) {
+  function Tasks ({projects, tasksByDay}) {
     return (
       <div className='section'>
         {tasksByDay.map(day => (
@@ -25,7 +26,7 @@ export default connect(
                 <tr key={task.ref}>
                   <td style={{width: 60}}>{displayTime(task.startedAt)}</td>
                   <td>{task.description}</td>
-                  <td style={{width: 160}}><a href='#'>project-link-todo</a></td>
+                  <td style={{width: 160}}><a href='#'>{projects[task.projectRef].name}</a></td>
                   <td>{displayElapsed(task.elapsed)}</td>
                 </tr>
               )}

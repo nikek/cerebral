@@ -3,7 +3,7 @@ import saveDraft from '../actions/saveDraft'
 
 export default [
   saveDraft,
-  { success: [unset(state`clients.$draft`)],
+  { success: [unset(state`projects.$draft`)],
     error: []
   }
 ]

@@ -50,6 +50,8 @@ export default {
   Telephone: 'Téléphone',
   WebsiteUrl: 'Site web',
   Email: 'Email',
+  // Project
+  ProjectNameFilter: 'Nom du projet...',
   // Generic
   Add: 'Add'
 }
