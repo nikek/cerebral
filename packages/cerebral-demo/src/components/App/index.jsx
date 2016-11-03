@@ -2,6 +2,7 @@
 import React from 'react'
 import {connect} from 'cerebral/react'
 import LangSelector from '../LangSelector'
+import Login from '../Login'
 import Menu from '../Menu'
 import Timer from '../Timer'
 import Workspace from '../Workspace'
@@ -12,9 +13,10 @@ import './style.scss'
 const TaglineRe = /^(.*)\[Cerebral\](.*)$/
 
 export default connect(
-  { t: translations
+  { t: translations,
+    loggedIn: 'user.$loggedIn'
   },
-  function Demo ({t}) {
+  function Demo ({t, loggedIn}) {
     let tagline = <h2 className='subtitle'>
       {t.SiteTagLine}
     </h2>
@@ -25,6 +27,9 @@ export default connect(
         <a href='http://cerebraljs.com'>Cerebral</a>
         {m[2]}
       </h2>
+    }
+    if (!loggedIn) {
+      return <Login />
     }
     return (
       <div className='App'>

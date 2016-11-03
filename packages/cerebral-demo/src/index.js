@@ -10,6 +10,7 @@ import app from './modules/app'
 import clients from './modules/clients'
 import projects from './modules/projects'
 import tasks from './modules/tasks'
+import user from './modules/user'
 
 // Components
 import App from './components/App'
@@ -30,7 +31,8 @@ const controller = Controller({
     app,
     clients,
     projects,
-    tasks
+    tasks,
+    user
   }
 })
 

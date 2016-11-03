@@ -3,6 +3,10 @@ export default {
   language: 'english',
   CerebralDemo: 'Cerebral Demo',
   SiteTagLine: 'Time tracking application based on [Cerebral]', // [Cerebral] becomes a link here
+  // Login, Auth
+  pleaseLogin: 'Please login',
+  loginUserPlaceholder: 'Login',
+  loginPasswordPlaceholder: 'Password',
   // Day of Week
   Dow0: 'Mon',
   Dow1: 'Tue',

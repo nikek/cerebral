@@ -3,6 +3,10 @@ export default {
   language: 'français',
   CerebralDemo: 'Démo Cerebral',
   SiteTagLine: 'Une saisie des heures basée sur [Cerebral]',
+  // Login, Auth
+  pleaseLogin: 'Authentification',
+  loginUserPlaceholder: 'Login',
+  loginPasswordPlaceholder: 'Mot de passe',
   // Day of Week
   Dow0: 'Lun',
   Dow1: 'Mar',
