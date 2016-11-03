@@ -1,7 +1,7 @@
 /* eslint-disable no-script-url */
 import React from 'react'
 import {connect} from 'cerebral/react'
-import LangSelector from './LangSelector'
+import LangSelector from '../LangSelector'
 import Menu from '../Menu'
 import Timer from '../Timer'
 import Workspace from '../Workspace'
@@ -27,25 +27,25 @@ export default connect(
       </h2>
     }
     return (
-      <div className='container'>
+      <div className='App'>
         <section className='hero is-dark'>
           <div className='hero-head'>
             <div className='container'>
               <nav className='nav'>
                 <div className='nav-left'>
-                  <a className='nav-item is-brand' style={{paddingLeft: 20}}>
+                  <a className='nav-item is-brand'>
                     <img src='/cerebral-logo.png' alt='Cerebral logo' />
                   </a>
                 </div>
                 <div className='nav-right'>
-                  <div className='nav-item' style={{paddingRight: 20}}>
+                  <div className='nav-item'>
                     <LangSelector />
                   </div>
                 </div>
               </nav>
             </div>
           </div>
-          <div className='hero-body' style={{paddingLeft: 20}}>
+          <div className='hero-body'>
             <div className='container'>
               <h1 className='title'>{t.CerebralDemo}</h1>
               {tagline}
@@ -53,11 +53,13 @@ export default connect(
           </div>
         </section>
         <section className='section'>
-          <div className='columns'>
-            <Menu />
-            <div className='column'>
-              <Timer />
-              <Workspace />
+          <div className='container'>
+            <div className='columns'>
+              <Menu />
+              <div className='column'>
+                <Timer />
+                <Workspace />
+              </div>
             </div>
           </div>
         </section>

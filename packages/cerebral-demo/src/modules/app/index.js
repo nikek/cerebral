@@ -8,11 +8,13 @@ export default {
   signals: {
     routed:
       [set(state`app.$selectedView`, 'Today')],
-    langOptionChanged:
+    langOptionClicked:
       [ set(state`app.$lang`, input`lang`),
         unset(state`app.$showLangSelector`)
       ],
-    langClicked:
-      [set(state`app.$showLangSelector`, true)]
+    langSelectorClicked:
+      [set(state`app.$showLangSelector`, true)],
+    langSelectorBackgroundClicked:
+      [unset(state`app.$showLangSelector`)]
   }
 }

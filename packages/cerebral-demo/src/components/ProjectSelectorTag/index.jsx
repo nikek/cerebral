@@ -11,15 +11,14 @@ export default connect(({projectRef}) => (
   },
   function ProjectTag ({onClick, project, showSelector}) {
     return (
-      <div className='control' style={{position: 'relative'}}>
+      <div className='control popup'>
         <span className='tag is-primary' onClick={() => onClick()}>
           {project.name}
         </span>
         {showSelector
-          ? <div style={{position: 'absolute', top: -3}}>
-            <ProjectSelector />
-          </div>
-          : ''}
+          ? <ProjectSelector />
+          : ''
+        }
       </div>
     )
   }
