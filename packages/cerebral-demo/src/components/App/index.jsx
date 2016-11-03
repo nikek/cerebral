@@ -7,6 +7,8 @@ import Timer from '../Timer'
 import Workspace from '../Workspace'
 import translations from '../../computed/translations'
 
+import './style.scss'
+
 const TaglineRe = /^(.*)\[Cerebral\](.*)$/
 
 export default connect(

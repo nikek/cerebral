@@ -3,7 +3,7 @@ import {input, set, state, unset} from 'cerebral/operators'
 export default {
   state: {
     $selectedView: 'Today',
-    $lang: 'fr'
+    $lang: 'en'
   },
   signals: {
     routed:
