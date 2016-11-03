@@ -5,7 +5,7 @@ export default {
   SiteTagLine: 'Time tracking application based on [Cerebral]', // [Cerebral] becomes a link here
   // Login, Auth
   pleaseLogin: 'Please login',
-  loginUserPlaceholder: 'Login',
+  loginUserPlaceholder: 'Email',
   loginPasswordPlaceholder: 'Password',
   // Day of Week
   Dow0: 'Mon',
@@ -44,8 +44,12 @@ export default {
   Start: 'Start',
   Stop: 'Stop',
   // Client
+  ClientNamePlaceholder: 'Client name...',
   CompanyName: 'Company name',
   ImageUrl: '64x64 image url',
   Telephone: 'Telephone',
-  Email: 'Email'
+  WebsiteUrl: 'Website',
+  Email: 'Email',
+  // Generic
+  Add: 'Add'
 }

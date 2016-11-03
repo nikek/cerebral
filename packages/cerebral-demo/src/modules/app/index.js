@@ -9,7 +9,7 @@ export default {
     routed:
       [set(state`app.$selectedView`, 'Today')],
     langOptionClicked:
-      [ set(state`app.$lang`, input`lang`),
+      [ set(state`user.lang`, input`lang`),
         unset(state`app.$showLangSelector`)
       ],
     langSelectorClicked:

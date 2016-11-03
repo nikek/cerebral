@@ -4,11 +4,11 @@ import Input from './Input'
 import Textarea from '../Textarea'
 
 export default connect(
-  { draft: `clients.$draft`
+  { client: `clients.$draft.**`
   },
   { cancelEdit: 'clients.escPressed'
   },
-  function ClientForm ({draft, cancelEdit}) {
+  function ClientForm ({client, cancelEdit}) {
     return (
       <div className='column'>
         <div className='card'>
@@ -16,14 +16,19 @@ export default connect(
             <div className='media' onClick={() => cancelEdit()}>
               <div className='media-left'>
                 <figure className='image is-32x32'>
-                  <img src='http://placehold.it/64x64' alt='user' />
+                  <img src={client.image || 'client-mini.png'} alt='user' />
                 </figure>
               </div>
               <div className='media-content'>
                 <p className='title is-5'>
-                  {draft.name}
+                  {client.name}
                 </p>
-                <p className='subtitle is-6'>@johnsmith</p>
+                {client.website
+                  ? <p className='subtitle is-6'>
+                    <a href={`http://${client.website}`}>{client.website}</a>
+                  </p>
+                  : ''
+                }
               </div>
             </div>
 
@@ -32,16 +37,20 @@ export default connect(
                 <Input field='name' autoFocus placeholder='CompanyName' />
               </p>
               <p className='control has-icon'>
+                <Input field='image' placeholder='ImageUrl' />
+                <i className='fa fa-image' />
+              </p>
+              <p className='control has-icon'>
+                <Input field='website' placeholder='WebsiteUrl' />
+                <i className='fa fa-globe' />
+              </p>
+              <p className='control has-icon'>
                 <Input field='email' placeholder='Email' />
                 <i className='fa fa-envelope' />
               </p>
               <p className='control has-icon'>
                 <Input field='phone' placeholder='Telephone' />
                 <i className='fa fa-phone' />
-              </p>
-              <p className='control has-icon'>
-                <Input field='image' placeholder='64x64 image url' />
-                <i className='fa fa-image' />
               </p>
               <p className='control'>
                 <Textarea field='notes' placeholder='Notes' />

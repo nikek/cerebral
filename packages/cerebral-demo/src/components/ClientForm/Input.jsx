@@ -22,7 +22,6 @@ export default connect(({field}) => (
     const onChange = e => {
       valueChanged({field, value: e.target.value})
     }
-    console.log(t, placeholder)
 
     return (
       <input className='input' type='text'

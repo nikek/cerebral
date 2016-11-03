@@ -1,7 +1,8 @@
 
 export default {
   state: {
-    $loggedIn: true
+    $loggedIn: true,
+    lang: 'en'
   },
   signals: {
   }

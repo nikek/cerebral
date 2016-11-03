@@ -4,8 +4,8 @@ export default Computed({
   clients: 'clients.all.**',
   filter: 'clients.$filter'
 }, ({clients, filter}) => {
+  const f = filter.toLowerCase()
   return Object.keys(clients).filter((ref) => (
-    ref !== 'no_client' &&
-    (!filter || clients[ref].name.indexOf(filter) >= 0)
+    !filter || clients[ref].name.toLowerCase().indexOf(f) >= 0
   ))
 })

@@ -5,7 +5,7 @@ export default {
   SiteTagLine: 'Une saisie des heures basée sur [Cerebral]',
   // Login, Auth
   pleaseLogin: 'Authentification',
-  loginUserPlaceholder: 'Login',
+  loginUserPlaceholder: 'Email',
   loginPasswordPlaceholder: 'Mot de passe',
   // Day of Week
   Dow0: 'Lun',
@@ -44,8 +44,12 @@ export default {
   Start: 'Start',
   Stop: 'Stop',
   // Client
+  ClientNamePlaceholder: 'Client name...',
   CompanyName: 'Nom de l\'entreprise',
   ImageUrl: 'Url image 64x64',
   Telephone: 'Téléphone',
-  Email: 'Email'
+  WebsiteUrl: 'Site web',
+  Email: 'Email',
+  // Generic
+  Add: 'Add'
 }

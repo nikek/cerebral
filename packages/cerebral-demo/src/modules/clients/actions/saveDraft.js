@@ -1,11 +1,8 @@
 function saveDraft ({state, path}) {
   const draft = state.get('clients.$draft')
-  const clientRef = state.get('clients.$selected')
-  const selectedClientPath = `clients.all.${clientRef}`
+  const clientRef = draft.ref
 
-  Object.keys(draft).forEach(k => {
-    state.set(`${selectedClientPath}.${k}`, draft[k])
-  })
+  state.set(`clients.all.${clientRef}`, draft)
 
   return path.success()
 }
