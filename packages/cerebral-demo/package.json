@@ -21,7 +21,7 @@
     "uuid": "^2.0.3"
   },
   "scripts": {
-    "prestart": "./node_modules/.bin/node-sass src/scss/app.scss -o public/css/",
+    "prestart": "npm run sass",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "sass": "./node_modules/.bin/node-sass src/scss/app.scss -o public/css/",
