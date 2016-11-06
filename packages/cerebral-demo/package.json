@@ -8,21 +8,22 @@
     "Gaspard Bucher <gaspard@lucidogen.io>"
   ],
   "devDependencies": {
+    "node-sass": "^3.11.2",
     "react-scripts": "0.6.1"
   },
   "dependencies": {
     "bulma": "^0.2.3",
-    "font-awesome": "^4.7.0",
+    "cerebral": "^2.0.0-0",
+    "cerebral-router": "^1.0.0-0",
     "js-joda": "^1.1.13",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "cerebral": "^2.0.0-0",
-    "cerebral-router": "^1.0.0-0",
     "uuid": "^2.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "sass": "./node_modules/.bin/node-sass src/scss/app.scss -o public/css/",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }

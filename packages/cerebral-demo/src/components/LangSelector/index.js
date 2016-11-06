@@ -20,12 +20,12 @@ export default connect(
   },
   function LangSelector ({showSelector, t, onBackgroundClick, onClick, onOptionClick}) {
     return (
-      <div className='popup'>
+      <div className='Selector'>
         <a onClick={() => onClick()}>{t.language}</a>
         { showSelector
         ? <div>
-          <div className='popupBackground' onClick={() => onBackgroundClick()} />
-          <div className='popup-left'>
+          <div className='SelectorBackground' onClick={() => onBackgroundClick()} />
+          <div className='SelectorLeft'>
             <div className='menu'>
               <ul className='menu-list'>
                 {LANG_OPTS.map(l => (

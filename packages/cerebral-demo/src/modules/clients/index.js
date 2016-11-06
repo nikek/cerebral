@@ -12,7 +12,7 @@ export default {
         name: 'Cerebral',
         notes: 'Make sense of complex apps.',
         ref: 'cerebral',
-        image: '/cerebral-mini.png',
+        image: '/img/cerebral-mini.png',
         website: 'cerebraljs.com'
       },
       'calvin': {
@@ -38,13 +38,16 @@ export default {
     cardClicked: selectClient,
     enterPressed: saveDraft,
     escPressed: discardDraft,
-    filterChanged:
-      [set(state`clients.$filter`, input`filter`)],
+    filterChanged: [
+      set(state`clients.$filter`, input`filter`)
+    ],
     filterEnterPressed: addClient,
     formValueChanged: updateDraft,
-    phoneClicked:
-      [set(state`clients.$phone`, input`phone`)],
-    routed:
-      [set(state`app.$selectedView`, 'Clients')]
+    phoneClicked: [
+      set(state`clients.$phone`, input`phone`)
+    ],
+    routed: [
+      set(state`app.$selectedView`, 'Clients')
+    ]
   }
 }

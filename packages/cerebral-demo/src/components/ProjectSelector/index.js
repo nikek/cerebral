@@ -16,8 +16,8 @@ export default connect(
   function ProjectSelector ({filter, projectsByClient, selectedProject, onBackgroundClick, onChange, onProjectClick}) {
     return (
       <div>
-        <div className='popupBackground' onClick={() => onBackgroundClick()} />
-        <div className='popup-right' style={{top: -4}}>
+        <div className='SelectorBackground' onClick={() => onBackgroundClick()} />
+        <div className='SelectorRight' style={{top: -4}}>
           <div className='card'>
             <header className='card-header'>
               <input className='input'

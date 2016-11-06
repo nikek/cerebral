@@ -33,24 +33,27 @@ export default {
   },
   signals: {
     addClicked: addProject,
-    cardClicked:
-      [ set(state`projects.$selected`, input`ref`),
-        set(state`projects.$draft`, state`projects.all.${input`ref`}`)
-      ],
+    cardClicked: [
+      set(state`projects.$selected`, input`ref`),
+      set(state`projects.$draft`, state`projects.all.${input`ref`}`)
+    ],
     enterPressed: saveDraft,
     escPressed: discardDraft,
     formValueChanged: updateDraft,
-    filterChanged:
-      [set(state`projects.$filter`, input`filter`)],
+    filterChanged: [
+      set(state`projects.$filter`, input`filter`)
+    ],
     filterEnterPressed: addProject,
-    projectTagClicked:
-      [set(state`projects.$showProjectSelector`, true)],
-    routed:
-      [set(state`app.$selectedView`, 'Projects')],
+    projectTagClicked: [
+      set(state`projects.$showProjectSelector`, true)
+    ],
+    routed: [
+      set(state`app.$selectedView`, 'Projects')
+    ],
     selectorBackgroundClick: closeProjectSelector,
-    selectorProjectClicked:
-      [ set(state`tasks.$running.projectRef`, input`ref`),
-        ...closeProjectSelector
-      ]
+    selectorProjectClicked: [
+      set(state`tasks.$running.projectRef`, input`ref`),
+      ...closeProjectSelector
+    ]
   }
 }

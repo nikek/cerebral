@@ -13,7 +13,7 @@ export default connect(
   },
   function ProjectTag ({onClick, project, showSelector}) {
     return (
-      <div className='control popup'>
+      <div className='control Selector'>
         <span className='tag is-primary' onClick={() => onClick()}>
           {project.name}
         </span>

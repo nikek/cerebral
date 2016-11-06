@@ -20,10 +20,12 @@ export default {
   },
   signals: {
     enterPressed: startStopRunning,
-    runningInputChanged:
-      [set(state`tasks.$running.description`, input`description`)],
-    routed:
-      [set(state`app.$selectedView`, 'Tasks')],
+    runningInputChanged: [
+      set(state`tasks.$running.description`, input`description`)
+    ],
+    routed: [
+      set(state`app.$selectedView`, 'Tasks')
+    ],
     startStopClicked: startStopRunning,
     timeHasPassed: updateNow
   }

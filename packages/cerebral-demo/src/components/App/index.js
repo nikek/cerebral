@@ -8,8 +8,6 @@ import Timer from '../Timer'
 import Workspace from '../Workspace'
 import translations from '../../computed/translations'
 
-import './style.scss'
-
 const TaglineRe = /^(.*)\[Cerebral\](.*)$/
 
 export default connect(
@@ -40,7 +38,9 @@ export default connect(
               <nav className='nav'>
                 <div className='nav-left'>
                   <a className='nav-item is-brand'>
-                    <img src='/cerebral-logo.png' alt='Cerebral logo' />
+                    {/* Wait until we have a logo that scales well in this place
+                      <img src='/cerebral-logo.png' alt='Cerebral logo' />
+                      */}
                   </a>
                 </div>
                 <div className='nav-right'>
