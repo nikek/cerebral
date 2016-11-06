@@ -2,11 +2,13 @@ import React from 'react'
 import {connect} from 'cerebral/react'
 import translations from '../../computed/translations'
 
-export default connect(({field}) => (
-  { value: `clients.$draft.${field}`,
+export default connect(
+  ({field}) => ({
+    value: `clients.$draft.${field}`,
     t: translations
   }),
-  { enterPressed: 'clients.enterPressed',
+  {
+    enterPressed: 'clients.enterPressed',
     escPressed: 'clients.escPressed',
     valueChanged: 'clients.formValueChanged'
   },

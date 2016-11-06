@@ -6,10 +6,12 @@ import runningTask from '../../computed/runningTask'
 import translations from '../../computed/translations'
 
 export default connect(
-  { task: runningTask,
+  {
+    task: runningTask,
     t: translations
   },
-  { onChange: 'tasks.runningInputChanged',
+  {
+    onChange: 'tasks.runningInputChanged',
     enterPressed: 'tasks.enterPressed',
     onClick: 'tasks.startStopClicked'
   },

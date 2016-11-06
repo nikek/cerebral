@@ -6,12 +6,14 @@ import visibleClientRefs from '../../computed/visibleClientRefs'
 import translations from '../../computed/translations'
 
 export default connect(
-  { clientRefs: visibleClientRefs,
+  {
+    clientRefs: visibleClientRefs,
     filter: 'clients.$filter',
     selectedClient: 'clients.$draft.**', // Should be 'clients.$draft.ref' IMO
     t: translations
   },
-  { enterPressed: 'clients.filterEnterPressed',
+  {
+    enterPressed: 'clients.filterEnterPressed',
     onChange: 'clients.filterChanged',
     onClick: 'clients.addClicked'
   },

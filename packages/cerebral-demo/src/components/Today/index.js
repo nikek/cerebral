@@ -5,7 +5,8 @@ import tasksByDay from '../../computed/tasksByDay'
 import Date from '../Date'
 
 export default connect(
-  { projects: 'projects.all.**',
+  {
+    projects: 'projects.all.**',
     tasksByDay
   },
   function Tasks ({projects, tasksByDay}) {

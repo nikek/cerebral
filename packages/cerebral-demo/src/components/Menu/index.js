@@ -3,13 +3,15 @@ import {connect} from 'cerebral/react'
 import translations from '../../computed/translations'
 
 const MENUS = [
-  {name: 'Work',
+  {
+    name: 'Work',
     entries: [
       {name: 'Today', icon: 'fa-clock-o', url: '/'},
       {name: 'Report', icon: 'fa-bar-chart', url: '/report'}
     ]
   },
-  {name: 'Manage',
+  {
+    name: 'Manage',
     entries: [
       {name: 'Clients', icon: 'fa-users', url: '/clients'},
       {name: 'Projects', icon: 'fa-folder', url: '/projects'},

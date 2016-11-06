@@ -7,12 +7,14 @@ import Project from '../Project'
 import ProjectForm from '../ProjectForm'
 
 export default connect(
-  { filter: 'projects.$filter',
+  {
+    filter: 'projects.$filter',
     projectRefs: visibleProjectRefs,
     selectedProject: 'projects.$draft.**',
     t: translations
   },
-  { enterPressed: 'projects.filterEnterPressed',
+  {
+    enterPressed: 'projects.filterEnterPressed',
     onChange: 'projects.filterChanged',
     onClick: 'projects.addClicked'
   },

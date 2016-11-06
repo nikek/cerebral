@@ -3,7 +3,8 @@ import {connect} from 'cerebral/react'
 import translations from '../../computed/translations'
 
 export default connect(
-  { t: translations
+  {
+    t: translations
   },
   function Login ({t}) {
     return (

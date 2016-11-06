@@ -3,11 +3,13 @@ import {connect} from 'cerebral/react'
 import projectWithDetails from '../../computed/projectWithDetails'
 import {displayElapsed} from '../../helpers/dateTime'
 
-export default connect(({projectRef}) => (
-  { project: projectWithDetails.props({projectRef}),
+export default connect(
+  ({projectRef}) => ({
+    project: projectWithDetails.props({projectRef}),
     clients: 'clients.all.**'
   }),
-  { cardClicked: 'projects.cardClicked'
+  {
+    cardClicked: 'projects.cardClicked'
   },
   function project ({clients, project, cardClicked}) {
     const client = clients[project.clientRef]

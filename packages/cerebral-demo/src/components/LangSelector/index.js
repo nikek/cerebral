@@ -9,10 +9,12 @@ const LANG_OPTS = Object.keys(LANGS).map(l => (
 ))
 
 export default connect(
-  { t: translations,
+  {
+    t: translations,
     showSelector: 'app.$showLangSelector'
   },
-  { onBackgroundClick: 'app.langSelectorBackgroundClicked',
+  {
+    onBackgroundClick: 'app.langSelectorBackgroundClicked',
     onClick: 'app.langSelectorClicked',
     onOptionClick: 'app.langOptionClicked'
   },

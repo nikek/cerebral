@@ -13,7 +13,8 @@ import './style.scss'
 const TaglineRe = /^(.*)\[Cerebral\](.*)$/
 
 export default connect(
-  { t: translations,
+  {
+    t: translations,
     loggedIn: 'user.$loggedIn'
   },
   function Demo ({t, loggedIn}) {

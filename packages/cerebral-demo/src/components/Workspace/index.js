@@ -15,12 +15,11 @@ const VIEWS = {
 export default connect({
   'selectedView': 'app.$selectedView'
 },
-  function Workspace ({selectedView}) {
-    const CurrentView = VIEWS[selectedView]
-    return (
-      <div className='section'>
-        <CurrentView />
-      </div>
-    )
-  }
-)
+function Workspace ({selectedView}) {
+  const CurrentView = VIEWS[selectedView]
+  return (
+    <div className='section'>
+      <CurrentView />
+    </div>
+  )
+})

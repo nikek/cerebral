@@ -3,10 +3,12 @@ import {connect} from 'cerebral/react'
 import Email from '../Email'
 import Phone from '../Phone'
 
-export default connect(({clientRef}) => (
-  { client: `clients.all.${clientRef}`
+export default connect(
+  ({clientRef}) => ({
+    client: `clients.all.${clientRef}`
   }),
-  { cardClicked: 'clients.cardClicked'
+  {
+    cardClicked: 'clients.cardClicked'
   },
   function Client ({client, cardClicked}) {
     return (

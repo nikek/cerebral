@@ -2,12 +2,14 @@ import React from 'react'
 import {connect} from 'cerebral/react'
 import translations from '../../computed/translations'
 
-export default connect(({field}) => (
-  { clients: 'clients.all.**',
+export default connect(
+  ({field}) => ({
+    clients: 'clients.all.**',
     value: `projects.$draft.${field}`,
     t: translations
   }),
-  { valueChanged: 'projects.formValueChanged'
+  {
+    valueChanged: 'projects.formValueChanged'
   },
   function Input ({clients, field, value, placeholder, autoFocus, enterPressed, escPressed, valueChanged, t}) {
     const onChange = e => {

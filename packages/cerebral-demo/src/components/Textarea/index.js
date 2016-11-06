@@ -1,10 +1,12 @@
 import React from 'react'
 import {connect} from 'cerebral/react'
 
-export default connect(({field}) => (
-  { value: `clients.$draft.${field}`
+export default connect(
+  ({field}) => ({
+    value: `clients.$draft.${field}`
   }),
-  { enterPressed: 'clients.enterPressed',
+  {
+    enterPressed: 'clients.enterPressed',
     escPressed: 'clients.escPressed',
     valueChanged: 'clients.formValueChanged'
   },

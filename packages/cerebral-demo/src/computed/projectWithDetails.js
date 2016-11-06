@@ -1,8 +1,9 @@
 import {Computed} from 'cerebral'
 import tasksForProject from './tasksForProject'
 
-export default Computed(({projectRef}) => (
-  { project: `projects.all.${projectRef}.**`,
+export default Computed(
+  ({projectRef}) => ({
+    project: `projects.all.${projectRef}.**`,
     tasks: tasksForProject.props({projectRef})
   }),
   function projectWithDetails ({project, projectRef, tasks}) {

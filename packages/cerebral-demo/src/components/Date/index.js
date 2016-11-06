@@ -4,7 +4,8 @@ import translations from '../../computed/translations'
 import {displayDate} from '../../helpers/dateTime'
 
 export default connect(
-  { t: translations
+  {
+    t: translations
   },
   function Date ({date, t}) {
     return <span>{displayDate(date, t)}</span>

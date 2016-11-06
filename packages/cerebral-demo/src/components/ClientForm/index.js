@@ -4,9 +4,11 @@ import Input from './Input'
 import Textarea from '../Textarea'
 
 export default connect(
-  { client: `clients.$draft.**`
+  {
+    client: `clients.$draft.**`
   },
-  { cancelEdit: 'clients.escPressed'
+  {
+    cancelEdit: 'clients.escPressed'
   },
   function ClientForm ({client, cancelEdit}) {
     return (

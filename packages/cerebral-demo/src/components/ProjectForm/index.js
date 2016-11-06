@@ -5,10 +5,12 @@ import Select from './Select'
 import Textarea from '../Textarea'
 
 export default connect(
-  { clients: 'clients.all.**',
+  {
+    clients: 'clients.all.**',
     project: `projects.$draft.**`
   },
-  { cancelEdit: 'projects.escPressed'
+  {
+    cancelEdit: 'projects.escPressed'
   },
   function ProjectForm ({clients, project, cancelEdit}) {
     const client = clients[project.clientRef]

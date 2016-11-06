@@ -3,7 +3,8 @@ import {connect} from 'cerebral/react'
 
 export default connect(
   {},
-  { onClick: 'clients.phoneClicked'
+  {
+    onClick: 'clients.phoneClicked'
   },
   function Phone ({phone, onClick}) {
     if (phone) {

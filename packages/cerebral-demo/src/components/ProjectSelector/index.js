@@ -3,11 +3,13 @@ import {connect} from 'cerebral/react'
 import visibleProjectsByClient from '../../computed/visibleProjectsByClient'
 
 export default connect(
-  { filter: 'projects.$filter',
+  {
+    filter: 'projects.$filter',
     projectsByClient: visibleProjectsByClient,
     selectedProject: 'tasks.$running.projectRef'
   },
-  { onBackgroundClick: 'projects.selectorBackgroundClick',
+  {
+    onBackgroundClick: 'projects.selectorBackgroundClick',
     onChange: 'projects.filterChanged',
     onProjectClick: 'projects.selectorProjectClicked'
   },
