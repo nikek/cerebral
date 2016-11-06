@@ -53,5 +53,6 @@
       "**/node_modules/",
       "**/build/"
     ]
-  }
+  },
+  "private": true
 }
