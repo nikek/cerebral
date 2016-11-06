@@ -53,9 +53,5 @@
       "**/node_modules/",
       "**/build/"
     ]
-  },
-  "private": true,
-  "dependencies": {
-    "js-joda": "^1.1.12"
   }
 }
